@@ -21,3 +21,31 @@ class TelaDeLogin(FloatLayout):
         self.add_widget(self.botaoEntrar)
         self.add_widget(self.labelMensagemLogin)
 
+
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.boxlayout import BoxLayout
+
+class gerenciador(ScreenManager):
+    def __init__(self):
+        Tela1(Screen)
+        Tela2(Screen)
+
+class Tela1(FloatLayout):
+    FloatLayout:
+        Button:
+            text: "Tela1"
+            #root.current faz referencia a tela atual
+            on_press: app.root.current = 'tela2'
+
+class JanelaApp(App):
+    def build(self):
+        return gerenciador()
+
+
+class Tela1(FloatLayout):
+    #telas nao tem ids tem nomes
+    FloatLayout:
+        Button:
+            text: "Tela2"
+            #root.current faz referencia a tela atual
+            on_press: app.root.current = 'tela1'
