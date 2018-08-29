@@ -1,7 +1,11 @@
+from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.textinput import TextInput
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.boxlayout import BoxLayout
+
 
 class TelaDeLogin(FloatLayout):
     def __init__(self, **kwargs):
@@ -22,8 +26,7 @@ class TelaDeLogin(FloatLayout):
         self.add_widget(self.labelMensagemLogin)
 
 
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.boxlayout import BoxLayout
+
 
 class gerenciador(ScreenManager):
     def __init__(self):
@@ -31,21 +34,16 @@ class gerenciador(ScreenManager):
         Tela2(Screen)
 
 class Tela1(FloatLayout):
-    FloatLayout:
-        Button:
-            text: "Tela1"
-            #root.current faz referencia a tela atual
-            on_press: app.root.current = 'tela2'
+    def __init__(self, **kwargs):
+        super(TelaDeLogin, self).__init__(**kwargs)
+        self.nomeDoTitulo = Label(text="Login", size_hint=(None, None), pos_hint={"x": .25, "y": .65}, font_size=30)
 
-class JanelaApp(App):
-    def build(self):
-        return gerenciador()
+        self.add_widget(self.nomeDoTitulo)
 
+class Tela2(FloatLayout):
+    def __init__(self, **kwargs):
+        super(TelaDeLogin, self).__init__(**kwargs)
+        self.nomeDoTitulo = Label(text="Login", size_hint=(None, None), pos_hint={"x": .25, "y": .65}, font_size=30)
 
-class Tela1(FloatLayout):
-    #telas nao tem ids tem nomes
-    FloatLayout:
-        Button:
-            text: "Tela2"
-            #root.current faz referencia a tela atual
-            on_press: app.root.current = 'tela1'
+        self.add_widget(self.nomeDoTitulo)
+
