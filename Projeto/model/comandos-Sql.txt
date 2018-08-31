@@ -1,0 +1,11 @@
+arquivo = base.db
+
+create table usuario(
+    idUsuario INTEGER primary key,
+    login varchar(35),
+    senha varchar(35),
+    nome varchar(100)
+    )
+
+inserir usuario:
+insert into usuario(login, senha, nome) values('walter', '1234', 'walter silva');
