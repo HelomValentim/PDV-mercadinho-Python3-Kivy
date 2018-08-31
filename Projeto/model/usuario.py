@@ -9,8 +9,10 @@ class Usuario(object):
 
     def testaLoginSenha(self, login, senha):
         try:
-            self.existeLogin = list((self.Sql.testarLoginSenha(login, senha))[0])
+            self.existe = list((self.Sql.testarLoginSenha(login, senha))[0])
         except:
             return 0
         else:
             return 1
+
+

@@ -3,11 +3,10 @@
         name: "TelaDeLogin"
     Tela1:
         name: "Tela1"
-    Tela2:
-        name: "Tela2"
 
 <TelaDeLogin>:
     FloatLayout:
+        id: TelaDeLogin
         Label:
             text: "Login"
             size_hint: None, None
@@ -34,7 +33,7 @@
             size_hint: None, None
             size: 150, 50
             pos_hint: {"x": .713, "y": .5}
-            on_press: app.gerenciador.clicar()
+            on_press: root.entrarNoSistema(entradaLogin.text, entradaSenha.text)
         Label:
             id: labelMensagemLogin
             text: ""
@@ -45,9 +44,4 @@
 <Tela1>:
     FloatLayout:
         Button:
-            text: "Tela1"
-
-<Tela2>:
-    FloatLayout:
-        Button:
-            text: "Tela2"
+            text: "Bem Vindo"

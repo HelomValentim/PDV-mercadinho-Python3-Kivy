@@ -9,9 +9,7 @@ from kivy.uix.textinput import TextInput
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 class GerenciadorDeTelas(ScreenManager):
-    def clicar(self):
-        print("clicado")
-        self.current = "Tela1"
+    pass
 
 class Tela1(Screen):
     pass
@@ -21,7 +19,14 @@ class Tela2(Screen):
     pass
 
 class TelaDeLogin(Screen):
-    pass
+
+    def entrarNoSistema(self, login, senha):
+        self.usuario = Usuario()
+        if (self.usuario.testaLoginSenha(login, senha)):
+            App.root.GerenciadorDeTelas.current="Tela1"
+        else:
+            self.ids.labelMensagemLogin.text = "Login ou senha incorreto"
+
 
 class TelaInicial(App):
     def build(self):
@@ -32,7 +37,6 @@ class TelaInicial(App):
         self.tela2 = Tela2()
         self.gerenciador = GerenciadorDeTelas()
 
-        #self.telaPrincipal = Builder.load_file(path[1]+"/Projeto/view/telainicial.kv")
         return self.gerenciador
 
 
