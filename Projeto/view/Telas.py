@@ -16,16 +16,12 @@ class Tela2(Screen):
     pass
 
 class TelaDeLogin(Screen):
-    pass
-    # def entrarNoSistema(self):
-    #     print("entrou")
-    #     self.usuario = Usuario()
-    #     if (self.usuario.testaLoginSenha(self.ids.entradaLogin.text, self.ids.entradaSenha.text)):
-    #         App.root_window.
-    #     else:
-    #         self.ids.labelMensagemLogin.text = "Login regeitado"
+    def __init__(self):
+        super(TelaDeLogin, self)
+        self.ids.botaoEntrar.on_press = self.entrarNoSistema()
 
-
+    def entrarNoSistema(self):
+        print("entrou")
 
 
 class TelaInicial(App):
@@ -36,3 +32,4 @@ class TelaInicial(App):
         self.tela2 = Tela2()
         self.gerenciador = GerenciadorDeTelas()
         return self.gerenciador
+
