@@ -26,3 +26,13 @@ class TelaDeLogin(Screen):
     #         self.ids.labelMensagemLogin.text = "Login regeitado"
 
 
+
+
+class TelaInicial(App):
+    def build(self):
+        self.title = "Ponto De Vendas"
+        self.telaLogin = TelaDeLogin()
+        self.tela1 = Tela1()
+        self.tela2 = Tela2()
+        self.gerenciador = GerenciadorDeTelas()
+        return self.gerenciador
