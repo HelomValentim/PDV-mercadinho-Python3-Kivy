@@ -57,3 +57,10 @@ class Telas(App):
             self.gerenciador.current = "TelaSistema"
         else:
             self.root.get_screen("TelaDeLogin").ids.labelMensagemLogin.text = "Login ou senha invalidos"
+            
+    def abrirTelaVender(self):
+        self.root.get_screen("TelaSistema").remove_widget(self.root.get_screen("TelaSistema").ids.botoesTelas)
+        self.root.get_screen("TelaSistema").add_widget(self.root.get_screen("TelaVendas"))
+    def voltarTelaVender(self):
+        self.root.get_screen("TelaSistema").remove_widget(self.root.get_screen("TelaVendas"))
+        self.root.get_screen("TelaSistema").add_widget(self.root.get_screen("TelaSistema").ids.botoesTelas)
