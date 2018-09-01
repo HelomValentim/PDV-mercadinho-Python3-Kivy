@@ -1,0 +1,144 @@
+<GerenciadorDeTelas>:
+    TelaFramePrincipal:
+        name: "TelaFramePrincipal"
+
+    TelaDeLogin:
+        name: "TelaDeLogin"
+    TelaSistema:
+        name: "TelaSistema"
+    TelaProdutos:
+        name: "TelaProdutos"
+    TelaVendas:
+        name: "TelaVendas"
+    TelaCadastroProduto:
+        name: "TelaCadastroProduto"
+
+<TelaFramePrincipal>:
+    add_widget(TelaDeLogin)
+
+<TelaDeLogin>:
+    FloatLayout:
+        Label:
+            text: "Login"
+            size_hint: None, None
+            pos_hint: {"x": .25, "y": .65}
+            font_size: 30
+        TextInput:
+            id: entradaLogin
+            size_hint: None, None
+            size: 400, 40
+            pos_hint: {"x": .4, "y": .7}
+            multiline: False
+            font_size: 25
+        Label:
+            text: "Senha"
+            size_hint: None, None
+            pos_hint: {"x": .25, "y": .55}
+            font_size: 30
+        TextInput:
+            id: entradaSenha
+            size_hint: None, None
+            size: 400, 40
+            pos_hint: {"x": .4, "y": .6}
+            font_size: 25
+            multiline: False
+            password: True
+
+        Button:
+            id: botaoEntrar
+            text: "Entrar"
+            size_hint: None, None
+            size: 150, 50
+            pos_hint: {"x": .645, "y": .5}
+            on_press: app.entrarNoSistema(entradaLogin.text, entradaSenha.text)
+        Label:
+            id: labelMensagemLogin
+            text: ""
+            size_hint: None, None
+            pos_hint: {"x": .36, "y": .3}
+            font_size: 30
+
+<TelaSistema>:
+    StackLayout:
+        size_hint: None, None
+        size: 60, 720
+        StackLayout:
+            id: botoesTelas
+            pos_hint: None, None
+            pos_hint: {"x": 0, "y": 0}
+            orientation: 'tb-lr'
+            Button:
+                text: "Vender"
+                font_size: dp(12)
+                size_hint: None, None
+                size: 60, 60
+                on_press: app.root.get_screen('TelaSistema').ids.botoesTelas.add_widget(app.TelaVendas)
+            Button:
+                text: "Produtos"
+                font_size: dp(12)
+                size_hint: None, None
+                size: 60, 60
+
+            Button:
+                text: "Usuarios"
+                font_size: dp(12)
+                size_hint: None, None
+                size: 60, 60
+            Button:
+                text: "Clientes"
+                font_size: dp(12)
+                size_hint: None, None
+                size: 60, 60
+
+<TelaVendas>:
+    StackLayout:
+        orientation: "tb-lr"
+        BoxLayout:
+            orientation: 'horizontal'
+            padding: 20
+            spacing: 10
+            id: vender
+            Label:
+                text: "Codigo:"
+                font_size: dp(15)
+                size_hint: None, None
+                size: 50, 20
+                pos_hint: {"x": 0, "y": .99}
+            TextInput:
+                id: codigoDoProdutoVenda
+                font_size: dp(15)
+                size_hint: None, None
+                size: 300, 30
+                pos_hint: {"x": 0, "y": .98}
+            Button:
+                text: "Buscar"
+                font_size: dp(15)
+                size_hint: None, None
+                size: 100, 30
+                pos_hint: {"x": 0, "y": .98}
+
+<TelaProdutos>:
+    BoxLayout:
+        id: TelaProdutos
+        orientation: "horizontal"
+        padding: 20
+        spacing: 10
+        Button:
+            text: "Cadastrar Produto"
+            font_size: dp(15)
+            size_hint: None, None
+            size: 150, 30
+            pos_hint: {"x": 0, "y": .98}
+
+
+<TelaCadastroProduto>:
+    BoxLayout:
+        orientation: "horizontal"
+        padding: 20
+        spacing: 10
+        Label:
+            font_size: dp(15)
+            size_hint: None, None
+            size: 50, 20
+            pos_hint: {"x": 0, "y": .99}
+

@@ -2,34 +2,53 @@ from Projeto.model.usuario import Usuario
 
 from kivy.app import App
 from kivy.lang import Builder
+
 from kivy.uix.label import Label
 from kivy.uix.button import Button
-from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.textinput import TextInput
-from kivy.uix.screenmanager import ScreenManager, Screen
 
+from kivy.uix.stacklayout import StackLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.boxlayout import BoxLayout
+
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
+
+from kivy.config import Config
+Config.set('input', 'mouse', 'mouse,multitouch_on_demand')
 from kivy.core.window import Window
 Window.size = (1024, 720)
 
 class GerenciadorDeTelas(ScreenManager):
     pass
 
+class TelaFramePrincipal(Screen):
+    pass
+
 class TelaSistema(Screen):
+    pass
+
+class TelaVendas(Screen):
     pass
 
 class TelaDeLogin(Screen):
     pass
 
-class TelaInicial(App):
+class TelaProdutos(Screen):
+    pass
+
+class TelaCadastroProduto(Screen):
+    pass
+
+class Telas(App):
     def build(self):
         self.title = "Ponto De Vendas"
         self.gerenciador = GerenciadorDeTelas()
+
         self.telaDeLogin = TelaDeLogin()
         self.TelaSistema = TelaSistema()
-
-        self.gerenciador.add_widget(self.TelaSistema)
-        self.gerenciador.add_widget(self.telaDeLogin)
-
+        self.TelaVendas = TelaVendas()
+        self.TelaProdutos = TelaProdutos()
+        self.TelaCadastroProduto = TelaCadastroProduto()
         return self.gerenciador
 
     def entrarNoSistema(self, login, senha):
@@ -37,6 +56,4 @@ class TelaInicial(App):
         if (self.usuario.testaLoginSenha(login, senha)):
             self.gerenciador.current = "TelaSistema"
         else:
-            self.root.get_screen('TelaDeLogin').ids.labelMensagemLogin.text = "Login ou senha invalidos"
-
-
+            self.root.get_screen("TelaDeLogin").ids.labelMensagemLogin.text = "Login ou senha invalidos"

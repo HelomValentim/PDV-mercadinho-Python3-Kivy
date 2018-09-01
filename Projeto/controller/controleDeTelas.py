@@ -1,5 +1,7 @@
 from Projeto.view.Telas import *
 
 class ControleTelaInicial(object):
-    telaInicial = TelaInicial()
-    telaInicial.run()
+    def __init__(self):
+        telaInicial = Telas()
+        telaInicial.run(
+)

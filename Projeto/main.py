@@ -1,5 +1,4 @@
-from Projeto.controller.controleDeTelas import TelaInicial
+from Projeto.controller.controleDeTelas import ControleTelaInicial
 
 if __name__ == "__main__":
-    telaInicial = TelaInicial()
-    telaInicial.run()
+    telaInicial = ControleTelaInicial()
