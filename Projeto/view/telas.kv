@@ -11,6 +11,8 @@
         name: "TelaVendas"
     TelaCadastroProduto:
         name: "TelaCadastroProduto"
+    TelaUsuarios:
+        name: "TelaUsuarios"
 
 <TelaDeLogin>:
     FloatLayout:
@@ -78,6 +80,7 @@
             font_size: dp(12)
             size_hint: None, None
             size: 60, 60
+            on_press: app.abrirTelaUsuarios()
 
         Button:
             text: "Clientes"
@@ -199,6 +202,90 @@
                     on_press: app.cadastrarProduto(entradaNomeDoProdutoParaCadastro.text, entradaCodigoDoProdutoParaCadastro.text, entradaPrecoDoProdutoParaCadastro.text)
                 Label:
                     id: labelMensagemCadastroDeProdutos
+                    text: ""
+                    size_hint: None, None
+                    pos_hint: {"x": .1, "y": .3}
+                    markup: True
+                    font_size: 25
+<TelaUsuarios>:
+    StackLayout:
+        Button:
+            text: "Voltar"
+            font_size: dp(15)
+            size_hint: None, None
+            size: 100, 30
+            pos_hint: {"x": 0, "y": .98}
+            on_press: app.voltarTelaUsuarios()
+
+    TabbedPanel:
+        size_hint: 1, .95
+        do_default_tab: False #desabilita aba padrão
+        TabbedPanelItem:
+            text: 'Usuarios'
+            FloatLayout:
+                Label:
+                    text: "Listagem de Usuarios"
+        TabbedPanelItem:
+            id: cadastroDeUsuarios
+            text: 'Cadastros'
+            FloatLayout:
+                Label:
+                    text: "[b]Cadastro De Usuarios[/b]"
+                    size_hint: None, None
+                    size: 100, 300
+                    pos_hint: {"x": .5, "y": .73}
+                    markup: True
+                    font_size: 25
+
+                Label:
+                    text: "[b]Login[/b]"
+                    size_hint: None, None
+                    pos_hint: {"x": .1, "y": .7}
+                    markup: True
+                    font_size: 25
+                TextInput:
+                    id: entradaLoginUsuarioCadastro
+                    size_hint: None, None
+                    size: 700, 40
+                    pos_hint: {"x": .2, "y": .75}
+                    multiline: False
+                    font_size: 25
+                Label:
+                    text: "[b]Nome:[/b]"
+                    size_hint: None, None
+                    pos_hint: {"x": .1, "y": .6}
+                    markup: True
+                    font_size: 25
+                TextInput:
+                    id: entradaNomeUsuarioCadastro
+                    size_hint: None, None
+                    size: 700, 40
+                    pos_hint: {"x": .2, "y": .65}
+                    multiline: False
+                    font_size: 25
+                Label:
+                    text: "[b]Senha:[/b]"
+                    size_hint: None, None
+                    pos_hint: {"x": .1, "y": .5}
+                    markup: True
+                    font_size: 25
+                TextInput:
+                    id: entradaSenhaUsuarioCadastro
+                    size_hint: None, None
+                    size: 500, 40
+                    pos_hint: {"x": .2, "y": .55}
+                    multiline: False
+                    font_size: 25
+
+                Button:
+                    text: "CADASTRAR"
+                    size_hint: None, None
+                    size: 150, 40
+                    pos_hint: {"x": .74, "y": .55}
+                    background_color: (0.0, 1.0, 0.0, 1.0)
+                    on_press: app.cadastraUsuario(entradaLoginUsuarioCadastro.text, entradaNomeUsuarioCadastro.text, entradaSenhaUsuarioCadastro.text)
+                Label:
+                    id: labelMensagemCadastroDeUsuarios
                     text: ""
                     size_hint: None, None
                     pos_hint: {"x": .1, "y": .3}

@@ -14,7 +14,7 @@ class Usuario(object):
             return 0
 
     def cadastrar(self, login, senha, nome):
-        if(self.sql.insertEqual("usuario", {"login": login, "senha": senha, "nome": nome})):
+        if(self.sql.insertEqual("usuario", {"login": login,"nome": nome, "senha": senha}, {"":""})):
             return 1
         else:
             return 0
