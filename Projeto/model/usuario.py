@@ -5,14 +5,16 @@ class Usuario(object):
         self.nome = ""
         self.senha = ""
         self.login = ""
-        self.Sql = Sql()
+        self.sql = Sql()
 
-    def testaLoginSenha(self, login, senha):
-        try:
-            self.existe = list((self.Sql.testarLoginSenha(login, senha))[0])
-        except:
-            return 0
-        else:
+    def logar(self, login, senha):
+        if(self.sql.selectEqual("usuario", {"login": login}, {"login": login, "senha": senha})):
             return 1
+        else:
+            return 0
 
-
+    def cadastrar(self, login, senha, nome):
+        if(self.sql.insertEqual("usuario", {"login": login, "senha": senha, "nome": nome})):
+            return 1
+        else:
+            return 0

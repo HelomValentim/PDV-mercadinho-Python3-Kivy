@@ -9,3 +9,12 @@ create table usuario(
 
 inserir usuario:
 insert into usuario(login, senha, nome) values('walter', '1234', 'walter silva');
+
+
+//tabela produtos
+
+create table produto(
+    idProduto INTEGER PRIMARY KEY,
+    nome VARCHAR(35),
+    codigo VARCHAR(35),
+    preco float)
