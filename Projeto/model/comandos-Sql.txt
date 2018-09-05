@@ -2,9 +2,9 @@ arquivo = base.db
 
 create table usuario(
     idUsuario INTEGER primary key,
-    login varchar(35) unique,
-    senha varchar(35),
-    nome varchar(100)
+    login varchar(35) NOT NULL,
+    senha varchar(35) NOT NULL,
+    nome varchar(100) NOT NULL
     )
 
 inserir usuario:
@@ -15,6 +15,6 @@ insert into usuario(login, senha, nome) values('walter', '1234', 'walter silva')
 
 create table produto(
     idProduto INTEGER PRIMARY KEY,
-    nome VARCHAR(35),
-    codigo VARCHAR(35),
-    preco float)
+    nome VARCHAR(35) UNIQUE NOT NULL,
+    codigo INTEGER UNIQUE NOT NULL,
+    preco DOUBLE NOT NULL)

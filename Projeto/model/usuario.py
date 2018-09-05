@@ -14,7 +14,8 @@ class Usuario(object):
             return 0
 
     def cadastrar(self, login, senha, nome):
-        if(self.sql.insertEqual("usuario", {"login": login,"nome": nome, "senha": senha}, {"":""})):
-            return 1
-        else:
-            return 0
+        #devemos verificar varias condições antes de executar essa query, coloquei sem os testes apenas na fase beta
+        return self.sql.insertEqual("usuario", {"login": login,"nome": nome, "senha": senha}, {"":""})
+
+    def listarUsuarios(self):
+        return self.sql.select("usuario")
