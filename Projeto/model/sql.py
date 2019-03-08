@@ -1,6 +1,6 @@
 import sqlite3
 from sys import path
-
+import os 
 import sqlite3
 from sys import path
 
@@ -8,7 +8,7 @@ class Sql(object):
     def query(self, comando):
         """esse metodo executa as queryes apos elas serem preparadas no metodo
         prepareQuery, tambem podemos passar queryes prontas que elas serão executadas aqui"""
-        self.conn = sqlite3.connect(path[1]+"/Projeto/model/base.db")
+        self.conn = sqlite3.connect(os.path.dirname(os.path.realpath(__file__))+"base.db")
         self.cursor = self.conn.cursor()
         try:
             retorno = self.cursor.execute(comando).fetchall()

@@ -187,12 +187,12 @@
         do_default_tab: False #desabilita aba padrão
         TabbedPanelItem:
             text: 'Produtos'
-            ListView:
-                id: TabelaProdutosListar
-                adapter:
-                    SimpleListAdapter(
-                    data=["{}".format(produto[1]) for produto in app.listaDeProdutos],
-                    cls=Label)
+            #ListView:
+                #id: TabelaProdutosListar
+                #adapter:
+                    #SimpleListAdapter(
+                    #data=["{}".format(produto[1]) for produto in app.listaDeProdutos],
+                    #cls=Label)
 
         TabbedPanelItem:
             id: cadastroProduto
@@ -251,7 +251,7 @@
                     size_hint: None, None
                     size: 150, 40
                     pos_hint: {"x": .74, "y": .55}
-                    background_color: (0.0, 1.0, 0.0, 1.0)
+                    #background_color: (0.0, 1.0, 0.0, 1.0)
                     on_press: app.cadastraProduto(entradaNomeDoProdutoParaCadastro.text, entradaCodigoDoProdutoParaCadastro.text, entradaPrecoDoProdutoParaCadastro.text)
                 Label:
                     id: labelMensagemCadastroDeProdutos
@@ -278,9 +278,9 @@
             ListView:
                 id: TabelaProdutosListar
                 adapter:
-                    SimpleListAdapter(
-                    data=["{}".format(usuario[1]) for usuario in app.listaDeUsuarios],
-                    cls=Label)
+                    #SimpleListAdapter(
+                    #data=["{}".format(usuario[1]) for usuario in app.listaDeUsuarios],
+                    #cls=Label)
 
         TabbedPanelItem:
             id: cadastroDeUsuarios
