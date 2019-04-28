@@ -119,12 +119,8 @@ class Telas(App):
         else:
             self.root.get_screen("TelaUsuarios").ids.labelMensagemCadastroDeUsuarios.text = "CADASTRO EFETUADO!"
 
-    def entrarNoSistema(self, login, senha):
-        self.usuario = Usuario()
-        if (self.usuario.logar(login, senha)):
-            self.gerenciador.current = "TelaSistema"
-        else:
-            self.root.get_screen("TelaDeLogin").ids.labelMensagemLogin.text = "Login ou senha invalidos"
+    def entrarNoSistema(self):
+        self.gerenciador.current = "TelaSistema"
 
     def adicionarProdutoVenda(self, codigoDoProduto):
         if(codigoDoProduto!=""):
