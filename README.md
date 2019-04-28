@@ -8,4 +8,4 @@ pygame
 pillow
 
 a instalação desses modulos no linux pode ser feita 
-usando o arquivo <strong style="color: #ff00ff"> requirements.sh</strong> que esta na pasta desse projeto
+usando o arquivo <strong style="color: red;"> requirements.sh</strong> que esta na pasta desse projeto
